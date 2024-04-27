@@ -1,0 +1,33 @@
+/* Styles for Desktop View */
+@media (min-width: 769px) {
+    .ml-4 {
+      margin-left: 350px;
+    }
+  }
+
+/* Default link styles */
+.link {
+    color: blue; /* Default text color */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s; /* Add a smooth transition for color changes */
+  }
+  
+  /* Hover effect for links */
+  .link:hover {
+    color: red; /* Change the text color on hover */
+    text-decoration: underline; /* Add an underline on hover */
+  }
+ 
+  
+  .custom-navbar {
+    /* height: 90px;  */
+    padding: 515px;
+  }
+  
+  /* Mobile view */
+  @media (max-width: 768px) {
+    .book_name_logo{
+      margin: 0px;
+      
+    }
+  }

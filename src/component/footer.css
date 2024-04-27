@@ -1,0 +1,14 @@
+/* Hide mobile icons on screens wider than 768px */
+@media (min-width: 769px) {
+    .mobile-icons {
+      display: none;
+    }
+  }
+  
+  /* Show the footer on screens wider than or equal to 768px */
+  @media (min-width: 768px) {
+    .footerContainer {
+      display: block;
+    }
+  }
+  

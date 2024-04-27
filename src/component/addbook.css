@@ -1,0 +1,11 @@
+.form_container {
+    background-color: rgb(62, 162, 152);
+    border-radius: 85px;
+    max-width: 500px;
+    margin: 0 auto; /* Center horizontally by using margin */
+    padding: 20px; /* Add some padding for spacing */
+}
+.gdrive_icon{
+    height: 25px;
+}
+
