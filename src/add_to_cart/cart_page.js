@@ -4,7 +4,7 @@ import { Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 export default function Cartdata() {
     const mystate = useSelector((state) => state.cardData)
-    console.log("carddata in /card =>", mystate);
+    // console.log("carddata in /card =>", mystate);
     return (
         <div className="App">
             <br />

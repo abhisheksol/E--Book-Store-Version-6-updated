@@ -23,13 +23,15 @@
   .about-image {
     padding: 0px;
     margin-bottom: 155px;
-    margin-right: 165px;
+   
+    /* margin-right: 165px; */
   }
   
   .about-image img {
-    max-width: 100%;
+    max-width: 80%;
     height: auto;
-    border-radius: 10px;
+    border-radius: 40px;
+
   }
   
   @media only screen and (min-width: 768px) {

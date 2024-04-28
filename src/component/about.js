@@ -1,35 +1,35 @@
 import React from 'react';
 import './About.css'; // Import your CSS file for styling
-import abhiImage from './abhi1.png';
+import abhiImage from './abhi2.jpg';
 import Footer from './footer';
 
 export default function About() {
   return (
-    <div style={{ backgroundColor: 'rgb(221,208,200)' }}>
-      <h1 style={{ color: 'rgb(249,115,22)' }}>About Me</h1>
-      <div className="about-container" style={{ backgroundColor: 'rgb(221,208,200)' }}>
-
-
-        <div className="about-image" style={{}}>
+    <div className="about-page">
+      <h1 className="about-heading">About Me</h1>
+      <div className="about-container">
+        <div className="about-image">
           <img src={abhiImage} alt="Abhishek Solapure" />
         </div>
-        <div className="about-info">
-        <p style={{ color: 'black' }}>
-            Abhishek Solapure, a B.Tech student, proficient in MERN stack, React Native, and Android app development.
-          </p >
-          <p style={{ color: 'black' }}>
-            Developed a sophisticated bookstore app using Node.js, MongoDB, React, and Redux, ensuring a seamless user experience.    
-                    Notable features include Multer integration for smooth file uploads and CRUD operations on books, cart management, and genre-based exploration.
-
+        <div className="about-info" style={{color:'#31473A',fontWeight:'bold'}}>
+          <p className="about-text">
+            <span className="about-label">Name:</span> Abhishek Solapure
           </p>
-         
-          <p style={{ color: 'black' }}>
-            The application offers a curated selection of books, aiming to provide users with a hassle-free journey in exploring and purchasing their favorite reads.
+          <p className="about-text">
+            <span className="about-label">Education:</span> B.Tech
+          </p>
+          <p className="about-text">
+            <span className="about-label">Skills:</span> MERN stack, React Native, Android app development
+          </p>
+          <p className="about-text">
+            <span className="about-label">Experience:</span> Developed a sophisticated bookstore app using Node.js, MongoDB, React, and Redux. Notable features include Multer integration for smooth file uploads and CRUD operations on books, cart management, and genre-based exploration.
+          </p>
+          <p className="about-text">
+            <span className="about-label">Objective:</span> To provide users with a hassle-free journey in exploring and purchasing their favorite reads.
           </p>
         </div>
-        {/* <div style={{ height: '600px' }}></div> */}
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 }

@@ -16,7 +16,7 @@ const Footer = () => {
         <a href="https://github.com/abhisheksol" target="_blank" rel="noopener noreferrer"><FaGithub style={iconStyle} color='#31473A' /></a>
         <div style={{backgroundColor:'', height:'30px', width:'2px', margin:'0 7px'}}></div>
 
-        <a href="https://wa.me/9561435141" target="_blank" rel="noopener noreferrer"><FaWhatsapp style={iconStyle} color='green' /></a>
+        <a href="https://wa.me/9561435141" target="_blank" rel="noopener noreferrer"><FaWhatsapp style={iconStyle} color='#31473A' /></a>
         <div style={{backgroundColor:'#31473A', height:'130px', width:'2px', margin:'0 7px'}}></div>
 
       </div>

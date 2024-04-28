@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Form, Button, FormLabel } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-
+import add_sound from "./shooting.mp3";
 export default function About() {
   const [name, setName] = useState("");
   const [author, setAuthor] = useState("");
@@ -10,10 +10,17 @@ export default function About() {
   const [description, setDescription] = useState("");
   const [image, setImage] = useState("");
   const [available, setAvailable] = useState(false); // Initialize as false
+  const [formError, setFormError] = useState(""); // State variable for form error message
+  const [upload, setupload] = useState(false)
   const [download, setDownload] = useState("");
   const [colour, setcolour] = useState("grey")
   const history = useNavigate();
 
+
+  function sound() {
+    new Audio(add_sound).play()
+    
+  }
   const add_to_page = async () => {
     await axios
       .post("https://nomulter.vercel.app/", {
@@ -30,8 +37,17 @@ export default function About() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // Check if any required field is empty
+    if (!name || !author || !price || !description || !image || !download) {
+      setFormError("Please fill in all required fields.");
+      return;
+    }
+
+
+
     add_to_page().then(() => history("/books"));
-    console.log({ name, author, price, description, image, available, download });
+    // console.log({ name, author, price, description, image, available, download });
   };
   //############################################################--upload --############################################################################################
 
@@ -47,7 +63,7 @@ export default function About() {
 
     const formData = new FormData();
     formData.append('image', file);
-    formData.append('key', 'be500228e4732c37b70f817f79fc89cb');
+    formData.append('key', 'd498373735c9e93e6874b525d59bb6c9');
 
     try {
       const response = await fetch('https://api.imgbb.com/1/upload', {
@@ -61,6 +77,15 @@ export default function About() {
     }
   };
   //################################################################--end--########################################################################################
+
+
+  useEffect(() => {
+    if (response) {
+      setImage(response.data.url);
+      setupload(false)
+    }
+  }, [response]);
+
 
   return (
     <div>
@@ -118,11 +143,13 @@ export default function About() {
 
           {/* ##############################################################--Link Geneator--##########################################################################################
  */}
-          <div style={{ backgroundColor: 'rgb(38,155,199)' }}>
-            <FormLabel style={{ fontFamily: 't', fontWeight: '600' }}># # Upload File Here to Generate Url🌐 And Paste it in Image Url 🔗🔗</FormLabel>
+          <div style={{ backgroundColor: '' }}>
+            {/* <FormLabel style={{ fontFamily: 't', fontWeight: '600' }}># # Upload File Here to Generate Url🌐 And Paste it in Image Url 🔗🔗</FormLabel> */}
 
 
             <Form.Group className="mb-3" controlId="formImageUrl">
+
+              <Form.Label style={{ marginTop: '15px' }}>Image Upload</Form.Label>
               <Form.Control
                 type="file"
                 accept="image/*"
@@ -133,6 +160,7 @@ export default function About() {
               <div onClick={() => {
                 uploadFile();
                 setcolour('green')
+                setupload(true)
               }}
                 style={{
                   cursor: 'pointer',
@@ -141,9 +169,19 @@ export default function About() {
                   padding: '10px',
                   borderRadius: '5px',
                   margin: '40px',
+                }}>Upload Image</div>
 
 
-                }}>Generate URL For Image</div>
+              {
+                upload && (
+                  <dotlottie-player
+                    src="https://lottie.host/9b616e46-9c91-483b-8716-67489a3982cb/S0DlmQP8kG.json"
+                    background="transparent"
+                    style={{ height: '60px' }}
+                    loop autoplay
+                  ></dotlottie-player>
+                )
+              }
 
               {response && (
                 <div>
@@ -152,17 +190,20 @@ export default function About() {
                   <p> URL👉 {response.data.url}</p>
                 </div>
               )}
+
             </Form.Group>
           </div>
           {/* ########################################################################################################################################################
  */}
 
           <Form.Group controlId="formImage">
-            <Form.Label>Image URL</Form.Label>
+            {/* <Form.Label>Image URL</Form.Label> */}
             <Form.Control
+              style={{ display: 'none' }}
               type="text"
               placeholder="Enter image URL"
               value={image}
+              disabled
               onChange={(e) => setImage(e.target.value)}
             />
           </Form.Group>
@@ -177,17 +218,21 @@ export default function About() {
           </Form.Group>
 
           <Form.Group controlId="formAvailable">
+            
             <Form.Check
               type="checkbox"
-              label="Availability of book"
+              label="Is Book Free ?"
+             style={{ marginTop:"15px", marginBottom:"15px"}}
               checked={available}
               onChange={(e) => setAvailable(e.target.checked)}
             />
           </Form.Group>
 
-          <Button variant="primary" type="submit">
+          <Button variant="primary" type="submit" onClick={sound}>
             Add Book
           </Button>
+          {/* Display form error message */}
+          {formError && <p style={{ color: "red" }}>{formError}</p>}
         </Form>
       </div></div>
   );

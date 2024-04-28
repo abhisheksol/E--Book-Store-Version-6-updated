@@ -34,7 +34,7 @@ export default function Admin() {
     }, [])
 
 
-    console.log("this is setdata coming....", admin_data); // for test purpose what data is coming
+    // console.log("this is setdata coming....", admin_data); // for test purpose what data is coming
 
 
 

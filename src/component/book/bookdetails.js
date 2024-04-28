@@ -17,7 +17,7 @@ export default function Update_del() {
     const [updata_json_data, setupdata_json_data] = useState({});
 
     const update_id = useParams().id;
-    console.log("this is id I got:", update_id);
+    // console.log("this is id I got:", update_id);
 
     // ------url
     useEffect(() => {
@@ -33,7 +33,7 @@ export default function Update_del() {
 
     const book = updata_json_data.gotbook;
 
-    console.log("this is update json data :=>", book);
+    // console.log("this is update json data :=>", book);
 
     // Adi cha data form mada display karna sathi before pressing update btn
     // Example name: "adi cha name tu dilala"

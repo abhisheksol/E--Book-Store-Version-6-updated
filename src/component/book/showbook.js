@@ -4,7 +4,7 @@ import Book from "./book";
 import { Link } from 'react-router-dom';
 import "./books.css"
 import { useState, useEffect } from "react";
-
+import sound from './bloop.mp3'
 // yata api cha url URl varible mada save kalo
 // const URL = "http://localhost:5000/"
 const URL = "https://nomulter.vercel.app/"
@@ -19,7 +19,9 @@ export default function Books() {
     const [apidata, setapidata] = useState([])
 
     // api madun data apidata mada save kart ahe
-
+    function play() {
+        new Audio(sound).play()
+      }
 
 
     useEffect(() => {
@@ -31,16 +33,16 @@ export default function Books() {
         // working expilation down(last line)
     })
 
-    console.log("this api book data is got==>", apidata);
+    // console.log("this api book data is got==>", apidata);
 
     return (
         <div>
 
             <div style={{ display: 'flex', marginLeft: '25px' }}>
-                <button style={buttonStyle}>
+                <button onClick={play} style={buttonStyle}>
                     <Link to="/add" style={linkStyle}>Add Books</Link>
                 </button>
-                <button style={buttonStyle}>
+                <button onClick={play} style={buttonStyle}>
                     <Link to="/admin" style={linkStyle}>Edit Books</Link>
                 </button>
 

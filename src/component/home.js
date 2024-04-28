@@ -8,6 +8,7 @@ import BackgroundVideo from './background_video/BackgroundVideo';
 export default function Home() {
     return (
         <div className="App">
+
             <Container>
                 <Row className="mt-5">
                     <Col className="text-center">
@@ -27,9 +28,14 @@ export default function Home() {
                             style={{ height: '250px' }}
                         ></dotlottie-player>
                         <p className="mt-4" style={{ color: 'black' }}>Explore our vast collection of engineering books across various disciplines.</p>
-                        <Button variant="dark">
-                            <Link to="/books" style={{ color: 'white', textDecoration: 'none' }}>Browse Books</Link>
-                        </Button>
+                        <div style={{ position: 'relative', zIndex: '1' }}>
+                            <Button variant="dark">
+                                <Link to="/books" style={{ color: 'white' }}>
+                                    Browse Books
+                                </Link>
+                            </Button>
+                        </div>
+
                     </Col>
                 </Row>
                 <Row className="mt-5">
@@ -53,7 +59,7 @@ export default function Home() {
                 <BackgroundVideo />
             </div>
             <Footer />
-            <Footer2/>
+            <Footer2 />
         </div>
     );
 }
